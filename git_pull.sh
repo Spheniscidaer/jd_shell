@@ -29,7 +29,7 @@ ContentDropTask=${ShellDir}/drop_task
 SendCount=${ShellDir}/send_count
 isTermux=${ANDROID_RUNTIME_ROOT}${ANDROID_ROOT}
 WhichDep=$(grep "/jd_shell" "${ShellDir}/.git/config")
-Scripts2URL=https://github.com/lan-tianxiang/jd_scripts
+Scripts2URL=https://gitee.com/tianxiang-lan/jd_scripts
 
 if [[ ${WhichDep} == *github* ]]; then
   ScriptsURL=https://gitee.com/highdimen/clone_scripts
@@ -39,21 +39,27 @@ else
   ShellURL=https://github.com/lan-tianxiang/jd_shell
 fi
 
-git pull
 
-strAttttt=`grep "url" ${ScriptsDir}/.git/config`
-strBttttt="RikudouPatrickstar"
+function SourceUrl_Update {
+  strAttttt=`grep "url" ${ScriptsDir}/.git/config`
+  strBttttt="RikudouPatrickstar"
 if [[ $strAttttt =~ $strBttttt ]]
-then
- #echo "修复完成"
- rm -rf ${ScriptsDir}
-else
- echo "Start"
- #rm -rf ${ScriptsDir}
+  then
+  rm -rf ${ScriptsDir}
+  else
+  echo "1"
 fi
+  strAttttt=`grep "url" ${Scripts2Dir}/.git/config`
+  strBttttt="lan-tianxiang"
+if [[ $strAttttt =~ $strBttttt ]]
+  then
+  rm -rf ${Scripts2Dir}
+  else
+  echo "2"
+fi
+}
 
-
-
+SourceUrl_Update
 
 ## 更新shell脚本
 function Git_PullShell {
