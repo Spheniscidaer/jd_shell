@@ -30,6 +30,17 @@ wget -q https://gitee.com/tianxiang-lan/jd_shell/raw/v3/install_scripts/linux_in
 wget -q https://gitee.com/tianxiang-lan/jd_shell/raw/v3/install_scripts/docker_install_jd.sh -O docker_install_jd.sh && chmod +x docker_install_jd.sh && bash docker_install_jd.sh
 ```
 
+#### 3. 修复或升级：
+- 进入项目安装目录
+
+      cd /home/jd
+- 执行修复与升级脚本
+
+      bash <(curl -sSL https://raw.githubusercontent.com/lan-tianxiang/jd_shell/v3/repair.sh)
+> _ㅤ注意：1. 此脚本适用于任何脚本出现异常，无法更新，出现未知错误时运行。不会清除账号以及配置数据，请放心使用！！ _\
+
+***
+
 ## 说明
 
 1. 即将推出远程面板功能，需安装数据库php等，非服务器的用户可以忽略
